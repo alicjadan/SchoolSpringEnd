@@ -26,13 +26,15 @@ public class StudentsController {
     }
     
     @RequestMapping(value="/AddStudent")
-    public String displayAddStudentForm(Model model, HttpSession session) {    	
+    public String displayAddStudentForm(Model model, HttpSession session) {        
     	if (session.getAttribute("userLogin") == null)
     		return "redirect:/Login";
     	
+    	model.addAttribute("schoolClasses", DatabaseConnector.getInstance().getSchoolClasses());
         return "studentForm";    
     }
-
+    
+    
     @RequestMapping(value="/CreateStudent", method=RequestMethod.POST)
     public String createStudent(@RequestParam(value="studentName", required=false) String name,
     		@RequestParam(value="studentSurname", required=false) String surname, 
