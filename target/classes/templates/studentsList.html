@@ -20,14 +20,16 @@
 		        <td>
 		            <form action="DeleteStudent" method="POST">
 		            	<input type="hidden" name="studentId" th:value="${student.id}" />
-		                <button type="submit">X</button>
+		                <button type="submit">usuń</button>
+		            </form>
+		            <form action="ModifyStudent" method="POST">
+		            	<input type="hidden" name="studentId" th:value="${student.id}" />
+		                <button type="submit">modyfikuj</button>
 		            </form>
 		        </td>
 			</tr>
-		
-		
-		</table><br/><a href='AddStudent'>dodaj ucznia</a><br/><br/>
-		
+		</table>
+		<br/><a href='AddStudent'>dodaj ucznia</a><br/><br/>
     </div>
 
 </body>
